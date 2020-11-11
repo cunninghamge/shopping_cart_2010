@@ -26,9 +26,10 @@ class Market
   end
 
   def items
-    @vendors.flat_map do |vendor|
-      vendor.inventory.keys
-    end.uniq
+    @vendors.reduce([]) do |list, vendor|
+      list << vendor.inventory.keys
+      list.flatten.uniq
+    end
   end
 
   def item_quantity(item)
