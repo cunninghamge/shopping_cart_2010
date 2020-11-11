@@ -54,4 +54,28 @@ class VendorTest < Minitest::Test
     assert_equal 345.00, @vendor2.potential_revenue
     assert_equal 48.75, @vendor3.potential_revenue
   end
+
+  def test_sell
+    @vendor1.stock(@item1, 35)
+    @vendor2.stock(@item4, 50)
+    @vendor3.stock(@item1, 65)
+
+    @vendor2.sell(@item4, 5)
+
+    assert_equal 45, @vendor2.check_stock(@item4)
+  end
+
+  def test_sell_if_quantity_exceeds_inventory
+    @vendor1.stock(@item1, 35)
+
+    @vendor1.sell(@item1, 40)
+
+    assert_equal 0, @vendor1.check_stock(@item1)
+  end
+
+  def test_that_sell_returns_quantity_remaining_to_sell
+    @vendor1.stock(@item1, 35)
+
+    assert_equal 5, @vendor1.sell(@item1, 40)
+  end
 end

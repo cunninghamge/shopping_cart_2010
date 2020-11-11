@@ -136,7 +136,6 @@ class MarketTest < Minitest::Test
   end
 
   def test_sell_reduces_inventory
-    skip
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
