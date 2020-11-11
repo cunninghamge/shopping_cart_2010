@@ -13,4 +13,10 @@ class Vendor
   def stock(item, amt)
     @inventory[item] += amt
   end
+
+  def potential_revenue
+    @inventory.sum do |item, quantity|
+      item.price * quantity
+    end
+  end
 end
