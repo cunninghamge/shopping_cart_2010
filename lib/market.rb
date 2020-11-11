@@ -33,4 +33,11 @@ class Market
       vendor.check_stock(item)
     end
   end
+
+  def total_inventory
+    items.each_with_object(Hash.new {|h,k| h[k] = {} }) do |item, hash_obj|
+      hash_obj[item][:quantity] = item_quantity(item)
+      hash_obj[item][:vendors] = vendors_that_sell(item)
+    end
+  end
 end
