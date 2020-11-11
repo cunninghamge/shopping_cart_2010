@@ -31,27 +31,27 @@ class MarketTest < Minitest::Test
   end
 
   def test_add_vendor
-    @market.add_vendor(vendor1)
-    @market.add_vendor(vendor2)
-    @market.add_vendor(vendor3)
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
 
     expected = [@vendor1, @vendor2, @vendor3]
     assert_equal expected, @market.vendors
   end
 
   def test_vendor_names
-    @market.add_vendor(vendor1)
-    @market.add_vendor(vendor2)
-    @market.add_vendor(vendor3)
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
 
     expected = ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
     assert_equal expected, @market.vendor_names
   end
 
   def test_vendors_that_sell
-    @market.add_vendor(vendor1)
-    @market.add_vendor(vendor2)
-    @market.add_vendor(vendor3)
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
 
     assert_equal [@vendor1, @vendor3], @market.vendors_that_sell(@item1)
     assert_equal [@vendor2], @market.vendors_that_sell(@item4)
