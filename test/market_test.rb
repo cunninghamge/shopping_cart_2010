@@ -126,7 +126,6 @@ class MarketTest < Minitest::Test
   end
 
   def test_sell_only_returns_true_if_there_are_enough_items
-    skip
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)

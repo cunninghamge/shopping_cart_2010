@@ -56,4 +56,12 @@ class Market
       list.sort
     end
   end
+
+  def sell(item, quantity)
+    if item_quantity(item) < quantity
+      false
+    else
+      true
+    end
+  end
 end
