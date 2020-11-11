@@ -66,8 +66,16 @@ class MarketTest < Minitest::Test
     assert_equal [@item1, @item2, @item3, @item4].to_set, @market.items.to_set
   end
 
+  def test_item_quantity
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+
+    assert_equal 100, @vendor.item_quantity(@item1)
+    assert_equal 7, @vendor.item_quantity(@item2)
+  end
+
   def test_total_inventory
-    skip
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
