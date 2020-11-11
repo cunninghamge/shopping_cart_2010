@@ -46,4 +46,11 @@ class Market
       (vendors_that_sell(item).count > 1) && (item_quantity(item) > 50)
     end
   end
+
+  def sorted_item_list
+    items.reduce([]) do |list, item|
+      list << item.name
+      list.sort
+    end
+  end
 end
