@@ -27,4 +27,10 @@ class Market
       vendor.inventory.keys
     end
   end
+
+  def item_quantity(item)
+    vendors_that_sell(item).sum do |vendor|
+      vendor.check_stock(item)
+    end
+  end
 end

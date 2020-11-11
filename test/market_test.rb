@@ -71,11 +71,12 @@ class MarketTest < Minitest::Test
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
 
-    assert_equal 100, @vendor.item_quantity(@item1)
-    assert_equal 7, @vendor.item_quantity(@item2)
+    assert_equal 100, @market.item_quantity(@item1)
+    assert_equal 7, @market.item_quantity(@item2)
   end
 
   def test_total_inventory
+    skip
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
