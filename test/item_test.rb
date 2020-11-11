@@ -13,6 +13,6 @@ class ItemTest < Minitest::Test
 
   def test_attributes
     assert_equal "Tomato", @item2.name
-    assert_equal 0.5, @item.price
+    assert_equal 0.5, @item2.price
   end
 end
