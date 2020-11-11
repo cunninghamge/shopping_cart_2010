@@ -25,7 +25,7 @@ class Market
   def items
     @vendors.flat_map do |vendor|
       vendor.inventory.keys
-    end
+    end.uniq
   end
 
   def item_quantity(item)
@@ -38,6 +38,12 @@ class Market
     items.each_with_object(Hash.new {|h,k| h[k] = {} }) do |item, hash_obj|
       hash_obj[item][:quantity] = item_quantity(item)
       hash_obj[item][:vendors] = vendors_that_sell(item)
+    end
+  end
+
+  def overstocked_items
+    items.select do |item|
+      (vendors_that_sell(item).count > 1) && (item_quantity(item) > 50)
     end
   end
 end

@@ -102,7 +102,6 @@ class MarketTest < Minitest::Test
   end
 
   def test_overstocked_items
-    skip
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
