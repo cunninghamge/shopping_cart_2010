@@ -1,10 +1,11 @@
 require 'date'
 
 class Market
-  attr_reader :name, :vendors
+  attr_reader :name, :vendors, :date
 
   def initialize(name)
     @name = name
+    @date = Date.today.strftime("%d/%m/%Y")
     @vendors = []
   end
 
