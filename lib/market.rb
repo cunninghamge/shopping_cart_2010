@@ -61,7 +61,16 @@ class Market
     if item_quantity(item) < quantity
       false
     else
+      reduce_inventory(item, quantity)
       true
+    end
+  end
+
+  def reduce_inventory(item, quantity)
+    until quantity == 0
+      vendors_that_sell(item).each do |vendor|
+        quantity = vendor.sell(item, quantity)
+      end
     end
   end
 end
