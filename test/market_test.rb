@@ -7,7 +7,6 @@ require './lib/market'
 
 class MarketTest < Minitest::Test
   def setup
-    Date.stubs(:today).returns(Date.parse("20200224"))
     @market = Market.new("South Pearl Street Farmers Market")
     @vendor1 = Vendor.new("Rocky Mountain Fresh")
     @item1 = Item.new({name: 'Peach', price: "$0.75"})
@@ -122,7 +121,9 @@ class MarketTest < Minitest::Test
   end
 
   def test_date
-    assert_equal "24/02/2020", @market.date
+    Date.stubs(:today).returns(Date.parse("20200224"))
+    market2 = Market.new("Market2")
+    assert_equal "24/02/2020", market2.date
   end
 
   def test_sell_only_returns_true_if_there_are_enough_items
