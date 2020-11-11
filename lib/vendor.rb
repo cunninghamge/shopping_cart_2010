@@ -19,4 +19,12 @@ class Vendor
       item.price * quantity
     end
   end
+
+  def sell(item, quantity)
+    until @inventory[item] == 0 || quantity == 0
+      quantity -= 1
+      @inventory[item] -= 1
+    end
+    quantity
+  end
 end
